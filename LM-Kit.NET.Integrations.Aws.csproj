@@ -4,7 +4,7 @@
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Version>2026.2.1</Version>
+		<Version>2026.7.1</Version>
 		<RootNamespace>LMKit.Integrations.Aws</RootNamespace>
 		<AssemblyName>LM-Kit.NET.Integrations.Aws</AssemblyName>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -15,12 +15,12 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<!-- Audit findings in LM-Kit.NET's transitive dependencies cannot be fixed from this project; keep them visible as warnings. -->
+		<WarningsNotAsErrors>$(WarningsNotAsErrors);NU1903</WarningsNotAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AWSSDK.BedrockRuntime" Version="3.7.*" />
+		<PackageReference Include="AWSSDK.BedrockRuntime" Version="4.0.*" />
 		<PackageReference Include="LM-Kit.NET" Version="2026.7.4" />
 	</ItemGroup>
-
-	<!-- System.Text.Json flows transitively from LM-Kit.NET (10.0.10) on all frameworks. -->
 </Project>
